@@ -5,7 +5,7 @@ export default function Header() {
     <header className="bg-white shadow">
       <div className="container mx-auto p-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-semibold sm:text-2xl">
+          <div className="text-xl font-semibold text-gray-800 sm:text-2xl">
             <Link to="/">Calculator Builder</Link>
           </div>
         </div>
