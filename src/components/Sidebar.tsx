@@ -12,7 +12,7 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="p-4 border-b sm:border-r sm:border-b-0 border-gray-300 text-gray-800">
+    <aside className="min-w-44 p-4 border-b sm:border-r sm:border-b-0 border-gray-300 text-gray-800">
       <h2 className="text font-bold">Components</h2>
       <div className="mt-4 grid gap-x-2 gap-y-3 grid-cols-3 sm:grid-cols-2">
         {sidebarComponents.map((item) => {
