@@ -13,7 +13,7 @@ export default function Home() {
     switch (item.type) {
       case "display":
         return (
-          <div className="col-span-full bg-orange-50 p-4 rounded text-2xl text-end shadow-sm font-semibold">
+          <div className="col-span-full bg-orange-50 p-4 rounded text-2xl text-end shadow-sm font-semibold dark:bg-gray-600">
             {displayValue}
           </div>
         );
@@ -48,7 +48,7 @@ export default function Home() {
         return (
           <button
             onClick={() => operatorClicked(item.id)}
-            className="w-full flex items-center justify-center bg-cyan-100 rounded shadow p-4 cursor-pointer hover:bg-white"
+            className="w-full flex items-center justify-center bg-cyan-100 rounded shadow p-4 cursor-pointer hover:bg-white dark:bg-gray-400 dark:hover:bg-gray-600"
           >
             {icon}
           </button>
@@ -57,7 +57,7 @@ export default function Home() {
         return (
           <button
             onClick={() => numberClicked(parseInt(item.value))}
-            className="w-full flex items-center justify-center bg-gray-100 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white"
+            className="w-full flex items-center justify-center bg-gray-100 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white dark:opacity-80 "
           >
             {item.value}
           </button>
@@ -101,9 +101,9 @@ export default function Home() {
   }
 
   return (
-    <main className="p-4 text-gray-800 flex-1">
+    <main className="p-4 text-gray-800 flex-1 dark:text-gray-100">
       <div className="w-full flex flex-col items-center justify-center">
-        <div className="p-4 m-4 w-96 border-2 border-dashed border-gray-400 rounded">
+        <div className="p-4 m-4 w-96 border-2 border-dashed border-gray-400 rounded dark:border-gray-600">
           <div className="grid grid-cols-4 gap-2">
             {editorComponents.map((item) => (
               <div
@@ -115,9 +115,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
           Go to the{" "}
-          <Link to="/edit" className="text-black underline">
+          <Link to="/edit" className="text-black underline dark:text-white">
             Editor
           </Link>{" "}
           to edit this calculator
