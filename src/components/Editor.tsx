@@ -1,37 +1,56 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 import { Component } from "../types";
+import {
+  DndContext,
+  DragEndEvent,
+  DragOverlay,
+  DragStartEvent,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  rectSortingStrategy,
+  SortableContext,
+} from "@dnd-kit/sortable";
+import SortableItem from "./SortableItem";
 
 export default function Editor() {
   const [components, setComponents] = useState<Component[]>([]);
+  const [active, setActive] = useState<Component | null>(null);
+
+  const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor));
 
   function addComponent(newComponent: Component) {
     setComponents([...components, newComponent]);
   }
 
-  function renderComponent(item: Component) {
-    switch (item.type) {
-      case "display":
-        return (
-          <div className="col-span-full bg-orange-50 p-4 rounded text-2xl text-end shadow-sm font-semibold">
-            0
-          </div>
-        );
-      case "operator":
-        return (
-          <button className="flex items-center justify-center bg-white/50 rounded shadow p-4 cursor-pointer hover:bg-white">
-            {item.icon}
-          </button>
-        );
-      case "number":
-        return (
-          <button className="flex items-center justify-center bg-cyan-50 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white">
-            {item.value}
-          </button>
-        );
-      case "default":
-        return null;
+  function handleDragStart(event: DragStartEvent) {
+    const { active } = event;
+
+    setActive(components.find((item) => item.id === active.id) ?? null);
+  }
+
+  function handleDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
+
+    if (active.id !== over?.id) {
+      setComponents((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over?.id);
+
+        return arrayMove(items, oldIndex, newIndex);
+      });
     }
+
+    setActive(null);
+  }
+
+  function handleDragCancel() {
+    setActive(null);
   }
 
   return (
@@ -43,7 +62,26 @@ export default function Editor() {
         <div className="w-full flex items-center justify-center">
           <div className="p-4 m-4 w-96 border-2 border-dashed border-gray-400 rounded">
             <div className="grid grid-cols-4 gap-2">
-              {components.map((item) => renderComponent(item))}
+              <DndContext
+                sensors={sensors}
+                // collisionDetection={closestCenter}
+                onDragStart={handleDragStart}
+                onDragEnd={handleDragEnd}
+                onDragCancel={handleDragCancel}
+              >
+                <SortableContext
+                  items={components.map((_, idx) => idx)}
+                  strategy={rectSortingStrategy}
+                >
+                  {components.map((item) => (
+                    <SortableItem key={item.id} item={item} />
+                  ))}
+                </SortableContext>
+
+                <DragOverlay adjustScale>
+                  {active ? <SortableItem item={active} /> : null}
+                </DragOverlay>
+              </DndContext>
             </div>
           </div>
         </div>
