@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import Sidebar from "./Sidebar";
-import SortableArea from "./SortableArea";
+import Sidebar from "../components/Sidebar";
+import SortableArea from "../components/SortableArea";
 
 export default function Editor() {
   return (
