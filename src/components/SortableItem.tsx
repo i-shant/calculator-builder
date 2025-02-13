@@ -7,13 +7,20 @@ type Props = {
 };
 
 export default function SortableItem({ item }: Props) {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: item.id });
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: item.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
     gridColumn: `${item.type === "display" ? "1 / -1" : "span 1"}`,
+    opacity: isDragging ? "0.5" : "1",
   };
 
   function renderComponent(item: Component) {
