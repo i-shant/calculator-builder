@@ -22,6 +22,16 @@ export const ALL_COMPONENTS: Component[] = [
     type: "operator",
     value: "Divide",
   },
+  {
+    id: "clear",
+    type: "operator",
+    value: "Clear",
+  },
+  {
+    id: "equal",
+    type: "operator",
+    value: "Equals",
+  },
   ...Array.from({ length: 10 }).map((_, i) => ({
     id: i.toString(),
     type: "number",
