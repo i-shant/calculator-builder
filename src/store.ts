@@ -5,14 +5,14 @@ import { ALL_COMPONENTS } from "./lib/data";
 
 export const useThemeStore = create(
   persist(
-    combine({ theme: <Theme>"dark" }, (set) => ({
+    combine({ theme: <Theme>"light" }, (set) => ({
       toggleTheme: () =>
         set((state) => {
-          document.documentElement.classList.toggle(
-            "dark",
-            state.theme === "dark"
-          );
-          return { theme: state.theme === "dark" ? "light" : "dark" };
+          const theme = state.theme === "dark" ? "light" : "dark";
+
+          document.documentElement.classList.toggle("dark", theme === "dark");
+
+          return { theme };
         }),
     })),
     { name: "theme-storage" }
