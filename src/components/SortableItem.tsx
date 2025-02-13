@@ -2,6 +2,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { Component } from "../types";
 import { Divide, Minus, Plus, XIcon } from "lucide-react";
+import { useEditorStore, useSidebarStore } from "../store";
 
 type Props = {
   item: Component;
@@ -20,9 +21,10 @@ export default function SortableItem({ item }: Props) {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    gridColumn: `${item.type === "display" ? "1 / -1" : "span 1"}`,
-    opacity: isDragging ? "0.5" : "1",
   };
+
+  const { addSidebarComponent } = useSidebarStore();
+  const { removeEditorComponent } = useEditorStore();
 
   function renderComponent(item: Component) {
     switch (item.type) {
@@ -66,9 +68,26 @@ export default function SortableItem({ item }: Props) {
     }
   }
 
+  function handleClick() {
+    addSidebarComponent(item);
+    removeEditorComponent(item.id);
+  }
+
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      {renderComponent(item)}
+    <div
+      className={`relative group ${isDragging ? "opacity-40" : "opacity-100"} ${
+        item.type === "display" ? "col-span-full" : ""
+      }`}
+    >
+      <button
+        onClick={handleClick}
+        className="absolute top-0 end-0 text-red-400 cursor-pointer rounded hover:text-white hover:bg-red-400 focus-visible:text-white focus-visible:bg-red-400 sm:hidden group-hover:block group-focus-within:block"
+      >
+        <XIcon className="w-4 h-4" />
+      </button>
+      <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+        {renderComponent(item)}
+      </div>
     </div>
   );
 }
