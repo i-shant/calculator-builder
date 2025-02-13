@@ -4,3 +4,5 @@ export type Component = {
   value: string;
   icon?: React.ReactNode;
 };
+
+export type Theme = "dark" | "light";

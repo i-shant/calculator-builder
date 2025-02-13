@@ -1,7 +1,23 @@
 import { create } from "zustand";
 import { combine, persist } from "zustand/middleware";
-import type { Component } from "./types";
+import type { Component, Theme } from "./types";
 import { ALL_COMPONENTS } from "./lib/data";
+
+export const useThemeStore = create(
+  persist(
+    combine({ theme: <Theme>"dark" }, (set) => ({
+      toggleTheme: () =>
+        set((state) => {
+          document.documentElement.classList.toggle(
+            "dark",
+            state.theme === "dark"
+          );
+          return { theme: state.theme === "dark" ? "light" : "dark" };
+        }),
+    })),
+    { name: "theme-storage" }
+  )
+);
 
 export const useEditorStore = create(
   persist(
