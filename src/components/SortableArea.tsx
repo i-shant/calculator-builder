@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  closestCenter,
   DndContext,
   DragEndEvent,
   DragOverlay,
@@ -54,7 +55,7 @@ export default function SortableArea({ components, setComponents }: Props) {
   return (
     <DndContext
       sensors={sensors}
-      // collisionDetection={closestCenter}
+      collisionDetection={closestCenter}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       onDragCancel={handleDragCancel}
