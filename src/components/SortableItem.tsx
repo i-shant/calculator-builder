@@ -85,9 +85,9 @@ export default function SortableItem({ item }: Props) {
 
   return (
     <div
-      className={`relative group ${isDragging ? "opacity-40" : "opacity-100"} ${
-        item.type === "display" ? "col-span-full" : ""
-      }`}
+      className={`relative group touch-none ${
+        isDragging ? "opacity-40" : "opacity-100"
+      } ${item.type === "display" ? "col-span-full" : ""}`}
     >
       <button
         onClick={handleClick}
