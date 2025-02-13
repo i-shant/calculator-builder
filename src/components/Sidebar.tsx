@@ -12,7 +12,7 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="min-w-44 p-4 border-b sm:border-r sm:border-b-0 border-gray-300 text-gray-800">
+    <aside className="min-w-44 p-4 border-b sm:border-r sm:border-b-0 border-gray-300 text-gray-800 dark:border-gray-700 dark:text-gray-100">
       <h2 className="text font-bold">Components</h2>
       <div className="mt-4 grid gap-x-2 gap-y-3 grid-cols-3 sm:grid-cols-2">
         {sidebarComponents.map((item) => {
@@ -48,7 +48,7 @@ export default function Sidebar() {
               onClick={() => handleClick(item)}
               className={`${
                 item.type === "display" ? "col-span-3 sm:col-span-2" : ""
-              } flex items-center justify-center gap-1 border border-gray-300 bg-white/50 px-3 py-2 rounded shadow cursor-pointer transition-shadow hover:bg-white hover:shadow-none focus:bg-white focus:shadow-none`}
+              } flex items-center justify-center gap-1 border border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-gray-600 px-3 py-2 rounded shadow cursor-pointer transition-shadow hover:bg-white dark:hover:bg-gray-400 hover:shadow-none focus:bg-white dark:focus:bg-gray-400 focus:shadow-none`}
             >
               {icon}
               <span>{item.value}</span>
