@@ -57,7 +57,7 @@ export default function Home() {
         return (
           <button
             onClick={() => numberClicked(parseInt(item.value))}
-            className="w-full flex items-center justify-center bg-gray-100 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white dark:opacity-80 "
+            className="w-full flex items-center justify-center bg-gray-100 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white dark:bg-gray-300 dark:hover:bg-gray-400 dark:hover:text-gray-100"
           >
             {item.value}
           </button>

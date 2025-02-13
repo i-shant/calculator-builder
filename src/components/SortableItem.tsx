@@ -30,7 +30,7 @@ export default function SortableItem({ item }: Props) {
     switch (item.type) {
       case "display":
         return (
-          <div className="col-span-full bg-orange-50 p-4 rounded text-2xl text-end shadow-sm font-semibold cursor-pointer">
+          <div className="col-span-full bg-orange-50 p-4 rounded text-2xl text-end shadow-sm font-semibold cursor-pointer dark:bg-gray-600">
             0
           </div>
         );
@@ -63,13 +63,13 @@ export default function SortableItem({ item }: Props) {
         }
 
         return (
-          <button className="w-full flex items-center justify-center bg-cyan-100 rounded shadow p-4 cursor-pointer hover:bg-white">
+          <button className="w-full flex items-center justify-center bg-cyan-100 rounded shadow p-4 cursor-pointer hover:bg-white dark:bg-gray-400 dark:hover:bg-gray-600">
             {icon}
           </button>
         );
       case "number":
         return (
-          <button className="w-full flex items-center justify-center bg-gray-100 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white">
+          <button className="w-full flex items-center justify-center bg-gray-100 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white dark:bg-gray-300 dark:hover:bg-gray-400 dark:hover:text-gray-100">
             {item.value}
           </button>
         );
