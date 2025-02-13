@@ -13,7 +13,7 @@ export default function Editor() {
 
   return (
     <div className="flex flex-col sm:flex-row flex-1 gap-2">
-      <Sidebar handleClick={addComponent} />
+      <Sidebar addComponent={addComponent} />
 
       <main className="p-4 text-gray-800 flex-1">
         <h2 className="text font-bold">Editor</h2>
