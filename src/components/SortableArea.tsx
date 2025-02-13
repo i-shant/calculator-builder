@@ -17,33 +17,33 @@ import {
 } from "@dnd-kit/sortable";
 import type { Component } from "../types";
 import SortableItem from "./SortableItem";
+import { useEditorStore } from "../store";
 
-type Props = {
-  components: Component[];
-  setComponents: React.Dispatch<React.SetStateAction<Component[]>>;
-};
-
-export default function SortableArea({ components, setComponents }: Props) {
+export default function SortableArea() {
   const [active, setActive] = useState<Component | null>(null);
+
+  const { editorComponents, setEditorComponents } = useEditorStore();
 
   const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor));
 
   function handleDragStart(event: DragStartEvent) {
     const { active } = event;
 
-    setActive(components.find((item) => item.id === active.id) ?? null);
+    setActive(editorComponents.find((item) => item.id === active.id) ?? null);
   }
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
 
     if (active.id !== over?.id) {
-      setComponents((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over?.id);
+      const oldIndex = editorComponents.findIndex(
+        (item) => item.id === active.id
+      );
+      const newIndex = editorComponents.findIndex(
+        (item) => item.id === over?.id
+      );
 
-        return arrayMove(items, oldIndex, newIndex);
-      });
+      setEditorComponents(arrayMove(editorComponents, oldIndex, newIndex));
     }
 
     setActive(null);
@@ -61,10 +61,10 @@ export default function SortableArea({ components, setComponents }: Props) {
       onDragCancel={handleDragCancel}
     >
       <SortableContext
-        items={components.map((_, idx) => idx)}
+        items={editorComponents.map((_, idx) => idx)}
         strategy={rectSortingStrategy}
       >
-        {components.map((item) => (
+        {editorComponents.map((item) => (
           <SortableItem key={item.id} item={item} />
         ))}
       </SortableContext>

@@ -1,20 +1,13 @@
-import { useState } from "react";
-import { ALL_COMPONENTS } from "../lib/data";
+import { useEditorStore, useSidebarStore } from "../store";
 import { Component } from "../types";
 
-type Props = {
-  addComponent: (newComponent: Component) => void;
-};
-
-export default function Sidebar({ addComponent }: Props) {
-  const [sidebarComponents, setSidebarComponents] = useState(ALL_COMPONENTS);
+export default function Sidebar() {
+  const { sidebarComponents, removeSidebarComponent } = useSidebarStore();
+  const { addEditorComponent } = useEditorStore();
 
   function handleClick(item: Component) {
-    setSidebarComponents(
-      sidebarComponents.filter((sidebarItem) => sidebarItem.id !== item.id)
-    );
-
-    addComponent(item);
+    removeSidebarComponent(item.id);
+    addEditorComponent(item);
   }
 
   return (
