@@ -34,7 +34,7 @@ export default function SortableItem({ item }: Props) {
       case "operator":
         return (
           <button className="w-full flex items-center justify-center bg-white/50 rounded shadow p-4 cursor-pointer hover:bg-white">
-            {item.icon}
+            {item.value}
           </button>
         );
       case "number":
