@@ -1,6 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { Component } from "../types";
+import { Divide, Minus, Plus, XIcon } from "lucide-react";
 
 type Props = {
   item: Component;
@@ -27,19 +28,36 @@ export default function SortableItem({ item }: Props) {
     switch (item.type) {
       case "display":
         return (
-          <div className="col-span-full bg-orange-50 p-4 rounded text-2xl text-end shadow-sm font-semibold">
+          <div className="col-span-full bg-orange-50 p-4 rounded text-2xl text-end shadow-sm font-semibold cursor-pointer">
             0
           </div>
         );
       case "operator":
+        let icon;
+
+        switch (item.id) {
+          case "add":
+            icon = <Plus className="w-5 h-5" />;
+            break;
+          case "subtract":
+            icon = <Minus className="w-5 h-5" />;
+            break;
+          case "multiply":
+            icon = <XIcon className="w-5 h-5" />;
+            break;
+          case "divide":
+            icon = <Divide className="w-5 h-5" />;
+            break;
+        }
+
         return (
-          <button className="w-full flex items-center justify-center bg-white/50 rounded shadow p-4 cursor-pointer hover:bg-white">
-            {item.value}
+          <button className="w-full flex items-center justify-center bg-cyan-100 rounded shadow p-4 cursor-pointer hover:bg-white">
+            {icon}
           </button>
         );
       case "number":
         return (
-          <button className="w-full flex items-center justify-center bg-cyan-50 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white">
+          <button className="w-full flex items-center justify-center bg-gray-100 rounded shadow-sm p-3 text-lg text-gray-600 font-semibold cursor-pointer hover:bg-white">
             {item.value}
           </button>
         );
