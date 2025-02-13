@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import type { Component } from "../types";
 import Sidebar from "./Sidebar";
 import SortableArea from "./SortableArea";
@@ -25,6 +26,13 @@ export default function Editor() {
               />
             </div>
           </div>
+          <p className="text-sm text-gray-500">
+            Go to{" "}
+            <Link to="/" className="text-black underline">
+              Home
+            </Link>{" "}
+            to test this calculator
+          </p>
         </div>
       </main>
     </div>
