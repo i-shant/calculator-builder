@@ -1,4 +1,4 @@
-import { Divide, Hash, Minus, Plus, XIcon } from "lucide-react";
+import { Divide, Equal, Hash, Minus, Plus, XIcon } from "lucide-react";
 import { useEditorStore, useSidebarStore } from "../store";
 import { Component } from "../types";
 
@@ -30,6 +30,12 @@ export default function Sidebar() {
                 break;
               case "divide":
                 icon = <Divide className="w-4 h-4 text-gray-400" />;
+                break;
+              case "clear":
+                icon = <span className="text-gray-400 me-1">C</span>;
+                break;
+              case "equal":
+                icon = <Equal className="w-4 h-4 text-gray-400" />;
                 break;
             }
           } else if (item.type === "number") {

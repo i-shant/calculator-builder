@@ -1,7 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { Component } from "../types";
-import { Divide, Minus, Plus, XIcon } from "lucide-react";
+import { Divide, Equal, Minus, Plus, XIcon } from "lucide-react";
 import { useEditorStore, useSidebarStore } from "../store";
 
 type Props = {
@@ -49,6 +49,16 @@ export default function SortableItem({ item }: Props) {
             break;
           case "divide":
             icon = <Divide className="w-5 h-5" />;
+            break;
+          case "clear":
+            icon = (
+              <span className="w-5 h-5 text-lg text-center flex items-center justify-center">
+                C
+              </span>
+            );
+            break;
+          case "equal":
+            icon = <Equal className="w-5 h-5" />;
             break;
         }
 
