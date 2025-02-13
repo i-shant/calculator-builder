@@ -7,7 +7,9 @@ import { useState } from "react";
 export default function Home() {
   const [displayValue, setDisplayValue] = useState("0");
 
-  const { editorComponents } = useEditorStore();
+  const { editorComponentsHistory, historyIndex } = useEditorStore();
+
+  const editorComponents = editorComponentsHistory[historyIndex] ?? [];
 
   function renderComponent(item: Component) {
     switch (item.type) {

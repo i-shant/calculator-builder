@@ -79,6 +79,7 @@ export default function SortableItem({ item }: Props) {
   }
 
   function handleClick() {
+    console.log(item);
     addSidebarComponent(item);
     removeEditorComponent(item.id);
   }

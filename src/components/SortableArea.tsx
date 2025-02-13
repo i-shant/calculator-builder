@@ -22,7 +22,10 @@ import { useEditorStore } from "../store";
 export default function SortableArea() {
   const [active, setActive] = useState<Component | null>(null);
 
-  const { editorComponents, setEditorComponents } = useEditorStore();
+  const { setEditorComponents, editorComponentsHistory, historyIndex } =
+    useEditorStore();
+
+  const editorComponents = editorComponentsHistory[historyIndex] ?? [];
 
   const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor));
 
@@ -64,9 +67,11 @@ export default function SortableArea() {
         items={editorComponents.map((_, idx) => idx)}
         strategy={rectSortingStrategy}
       >
-        {editorComponents.map((item) => (
-          <SortableItem key={item.id} item={item} />
-        ))}
+        {editorComponents?.length
+          ? editorComponents.map((item) => (
+              <SortableItem key={item.id} item={item} />
+            ))
+          : null}
       </SortableContext>
 
       <DragOverlay adjustScale>
