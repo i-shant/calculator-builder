@@ -67,6 +67,10 @@ export const useCalculatorStore = create<CalculatorState>()(
           get().updateHistory(newState);
         },
 
+        canUndo: () => get().historyIndex > 0,
+
+        canRedo: () => get().historyIndex < get().history.length - 1,
+
         undo: () =>
           set((state) => ({
             historyIndex: Math.max(0, state.historyIndex - 1),

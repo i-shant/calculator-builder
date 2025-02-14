@@ -19,6 +19,8 @@ export type CalculatorState = {
   setEditorComponents: (components: Component[]) => void;
   addEditorComponent: (component: Component) => void;
   removeEditorComponent: (component: Component) => void;
+  canUndo: () => boolean;
+  canRedo: () => boolean;
   undo: () => void;
   redo: () => void;
 };
