@@ -22,7 +22,9 @@ import { useCalculatorStore } from "../store";
 export default function SortableArea() {
   const [active, setActive] = useState<Component | null>(null);
 
-  const { editorComponents, setEditorComponents } = useCalculatorStore();
+  const { getCurrentState, setEditorComponents } = useCalculatorStore();
+
+  const { editorComponents } = getCurrentState();
 
   const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor));
 

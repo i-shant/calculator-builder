@@ -3,7 +3,9 @@ import { useCalculatorStore } from "../store";
 import { Component } from "../types";
 
 export default function Sidebar() {
-  const { sidebarComponents, addEditorComponent } = useCalculatorStore();
+  const { getCurrentState, addEditorComponent } = useCalculatorStore();
+
+  const { sidebarComponents } = getCurrentState();
 
   function handleClick(item: Component) {
     addEditorComponent(item);
