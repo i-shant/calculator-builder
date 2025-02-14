@@ -4,6 +4,7 @@ import Editor from "./pages/Editor";
 import Home from "./pages/Home";
 import { useEffect } from "react";
 import { useCalculatorStore } from "./store";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   const { theme } = useCalculatorStore();
@@ -18,6 +19,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/edit" element={<Editor />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
