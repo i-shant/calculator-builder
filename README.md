@@ -47,13 +47,13 @@ Build your own functional calculator, customizable with an intuitive drag-and-dr
 
 ### Screenshots
 
-![Home Mobile Screenshot](https://calculator-builder-ishant.vercel.app/screenshots/home-mobile.png)
+![Home Mobile Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/home-mobile.png)
 
-![Editor Mobile Screenshot](https://calculator-builder-ishant.vercel.app/screenshots/editor-mobile.png)
+![Editor Mobile Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/editor-mobile.png)
 
-![Home Desktop Screenshot](https://calculator-builder-ishant.vercel.app/screenshots/home-desktop.png)
+![Home Desktop Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/home-desktop.png)
 
-![Editor Desktop Screenshot](https://calculator-builder-ishant.vercel.app/screenshots/editor-desktop.png)
+![Editor Desktop Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/editor-desktop.png)
 
 ### Links
 
