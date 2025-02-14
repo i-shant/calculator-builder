@@ -5,7 +5,7 @@ import { useCalculatorStore } from "../store";
 import { Redo, Undo } from "lucide-react";
 
 export default function Editor() {
-  const { undo, redo } = useCalculatorStore();
+  const { undo, redo, canUndo, canRedo } = useCalculatorStore();
 
   return (
     <div className="flex flex-col sm:flex-row flex-1 gap-2">
@@ -16,6 +16,7 @@ export default function Editor() {
         <div className="flex items-center justify-center gap-4">
           <button
             title="Undo"
+            disabled={!canUndo()}
             onClick={undo}
             className="cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed dark:disabled:text-gray-500"
           >
@@ -23,6 +24,7 @@ export default function Editor() {
           </button>
           <button
             title="Redo"
+            disabled={!canRedo()}
             onClick={redo}
             className="cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed dark:disabled:text-gray-500"
           >
