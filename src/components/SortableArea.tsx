@@ -17,12 +17,12 @@ import {
 } from "@dnd-kit/sortable";
 import type { Component } from "../types";
 import SortableItem from "./SortableItem";
-import { useEditorStore } from "../store";
+import { useCalculatorStore } from "../store";
 
 export default function SortableArea() {
   const [active, setActive] = useState<Component | null>(null);
 
-  const { editorComponents, setEditorComponents } = useEditorStore();
+  const { editorComponents, setEditorComponents } = useCalculatorStore();
 
   const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor));
 

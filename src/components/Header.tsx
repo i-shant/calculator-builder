@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import { useThemeStore } from "../store";
 import { Moon, Sun } from "lucide-react";
+import { useCalculatorStore } from "../store";
 
 export default function Header() {
-  const { theme, toggleTheme } = useThemeStore();
+  const { theme, toggleTheme } = useCalculatorStore();
 
   return (
     <header className="bg-white shadow dark:bg-gray-400">
