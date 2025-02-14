@@ -4,14 +4,23 @@ export type Component = {
   value: string;
 };
 
-export type Theme = "dark" | "light";
-
-export type CalculatorState = {
-  theme: Theme;
+export type EditorState = {
   editorComponents: Component[];
   sidebarComponents: Component[];
+};
+
+export type CalculatorState = {
+  theme: "light" | "dark";
+  history: EditorState[];
+  historyIndex: number;
   toggleTheme: () => void;
+  getCurrentState: () => EditorState;
+  updateHistory: (newState: EditorState) => void;
   setEditorComponents: (components: Component[]) => void;
-  addEditorComponent: (newComponents: Component) => void;
+  addEditorComponent: (component: Component) => void;
   removeEditorComponent: (component: Component) => void;
+  canUndo: () => boolean;
+  canRedo: () => boolean;
+  undo: () => void;
+  redo: () => void;
 };

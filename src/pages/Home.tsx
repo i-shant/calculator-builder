@@ -7,7 +7,9 @@ import { useCalculatorStore } from "../store";
 export default function Home() {
   const [displayValue, setDisplayValue] = useState("0");
 
-  const { editorComponents } = useCalculatorStore();
+  const { getCurrentState } = useCalculatorStore();
+
+  const { editorComponents } = getCurrentState();
 
   function renderComponent(item: Component) {
     switch (item.type) {
