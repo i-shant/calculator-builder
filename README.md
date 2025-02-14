@@ -47,13 +47,15 @@ Build your own functional calculator, customizable with an intuitive drag-and-dr
 
 ### Screenshots
 
-![Home Mobile Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/home-mobile.png)
-
-![Editor Mobile Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/editor-mobile.png)
-
 ![Home Desktop Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/home-desktop.png)
 
 ![Editor Desktop Screenshot](https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/editor-desktop.png)
+
+<div>
+  <img alt='Home Mobile Screenshot' src='https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/home-mobile.png' width='45%'/>
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt='Editor Mobile Screenshot' src='https://raw.githubusercontent.com/i-shant/calculator-builder/refs/heads/main/screenshots/editor-mobile.png' width='45%'/>
+</div>
 
 ### Links
 
