@@ -32,7 +32,7 @@ export default function Editor() {
           </button>
         </div>
         <div className="w-full flex flex-col items-center justify-center">
-          <div className="p-4 m-4 w-96 border-2 border-dashed border-gray-400 dark:border-gray-600 rounded">
+          <div className="p-4 m-4 w-80 sm:w-96 border-2 border-dashed border-gray-400 dark:border-gray-600 rounded">
             <div className="grid grid-cols-4 gap-2">
               <SortableArea />
             </div>

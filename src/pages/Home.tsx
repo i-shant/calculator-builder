@@ -105,7 +105,7 @@ export default function Home() {
   return (
     <main className="p-4 text-gray-800 flex-1 dark:text-gray-100">
       <div className="w-full flex flex-col items-center justify-center">
-        <div className="p-4 m-4 w-96 border-2 border-dashed border-gray-400 rounded dark:border-gray-600">
+        <div className="p-4 m-4 w-80 sm:w-96 border-2 border-dashed border-gray-400 rounded dark:border-gray-600">
           <div className="grid grid-cols-4 gap-2">
             {editorComponents.map((item) => (
               <div
