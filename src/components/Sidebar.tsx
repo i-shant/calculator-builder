@@ -1,13 +1,11 @@
 import { Divide, Equal, Hash, Minus, Plus, XIcon } from "lucide-react";
-import { useEditorStore, useSidebarStore } from "../store";
+import { useCalculatorStore } from "../store";
 import { Component } from "../types";
 
 export default function Sidebar() {
-  const { sidebarComponents, removeSidebarComponent } = useSidebarStore();
-  const { addEditorComponent } = useEditorStore();
+  const { sidebarComponents, addEditorComponent } = useCalculatorStore();
 
   function handleClick(item: Component) {
-    removeSidebarComponent(item.id);
     addEditorComponent(item);
   }
 

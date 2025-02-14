@@ -1,13 +1,13 @@
 import { Divide, Equal, Minus, Plus, XIcon } from "lucide-react";
-import { useEditorStore } from "../store";
 import { Component } from "../types";
 import { Link } from "react-router";
 import { useState } from "react";
+import { useCalculatorStore } from "../store";
 
 export default function Home() {
   const [displayValue, setDisplayValue] = useState("0");
 
-  const { editorComponents } = useEditorStore();
+  const { editorComponents } = useCalculatorStore();
 
   function renderComponent(item: Component) {
     switch (item.type) {

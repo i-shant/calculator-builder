@@ -2,7 +2,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { Component } from "../types";
 import { Divide, Equal, Minus, Plus, XIcon } from "lucide-react";
-import { useEditorStore, useSidebarStore } from "../store";
+import { useCalculatorStore } from "../store";
 
 type Props = {
   item: Component;
@@ -23,8 +23,7 @@ export default function SortableItem({ item }: Props) {
     transition,
   };
 
-  const { addSidebarComponent } = useSidebarStore();
-  const { removeEditorComponent } = useEditorStore();
+  const { removeEditorComponent } = useCalculatorStore();
 
   function renderComponent(item: Component) {
     switch (item.type) {
@@ -79,8 +78,7 @@ export default function SortableItem({ item }: Props) {
   }
 
   function handleClick() {
-    addSidebarComponent(item);
-    removeEditorComponent(item.id);
+    removeEditorComponent(item);
   }
 
   return (

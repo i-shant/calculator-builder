@@ -3,10 +3,10 @@ import Layout from "./components/Layout";
 import Editor from "./pages/Editor";
 import Home from "./pages/Home";
 import { useEffect } from "react";
-import { useThemeStore } from "./store";
+import { useCalculatorStore } from "./store";
 
 export default function App() {
-  const { theme } = useThemeStore();
+  const { theme } = useCalculatorStore();
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
